@@ -1,8 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
 
-with open('index.html') as html:
-    soup = BeautifulSoup(html, 'lxml')
+# scraping a html file
+# with open('index.html') as html:
+#     soup = BeautifulSoup(html, 'lxml')
 
 
 # print in an pretty format
@@ -40,4 +41,22 @@ with open('index.html') as html:
 #     print(f'Article headline: {headline}')
 #     print(f'Content: {article_content}')
 #     print()
+
+
+# getting info from a live website
+
+""" Here I used a blog website I developed with Django """
+
+src = requests.get(url='http://127.0.0.1:8000/users/homepage/').text     # .text is used to get source code from the suggested page
+soup = BeautifulSoup(src, 'lxml')
+
+# print(soup.prettify())
+
+# Grabbing all article
+for article in soup.find_all('article', class_='content-section'):
+    headline = article.h4
+    body_text = article.p
+    print(f'Article: {headline}')
+    print(f'Content: {body_text}')
+    print()
 
