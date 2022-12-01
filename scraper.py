@@ -3,8 +3,8 @@ import requests
 import csv
 
 # scraping a html file
-# with open('index.html') as html:
-#     soup = BeautifulSoup(html, 'lxml')
+with open('index.html') as html:
+    soup = BeautifulSoup(html, 'lxml')
 
 
 # print in an pretty format
@@ -37,13 +37,26 @@ import csv
 
 # looping through all articles
 
+# open a csv file
+csv_file = open('web_scrape.csv', 'w')
+
+create_csv = csv.writer(csv_file)
+
+# adding a row
+create_csv.writerow(['headline', 'content'])
+
 
 for article in soup.find_all('div', class_='col-12'):
-    headline = article.h2
-    article_content = article.p
+    headline = article.h2.text
+    article_content = article.p.text
     print(f'Article headline: {headline}')
     print(f'Content: {article_content}')
     print()
+
+    # saving scraped data into csv file
+    create_csv.writerow([headline, article_content])
+
+csv_file.close()
 
 
 # getting info from a live website
