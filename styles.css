@@ -7,10 +7,21 @@ body {
     font-family: "Open Sans", sans-serif;
     font-size: 25px;
 }
+.navbar {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
 .navbar .navbar-brand {
+    margin-left: 10%;
     font-weight: 600;
     font-size: 30px;
     font-family: "Nunito", sans-serif;
+}
+
+.navbar .container .collapse .navbar-nav {
+    margin-left: 6%;
+}
+.navbar .container .collapse .accounts {
+    margin-left: 60%;
 }
 .body-container {
     margin-top: 7%;
