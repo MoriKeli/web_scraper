@@ -1,0 +1,18 @@
+*{box-sizing: border-box;}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+}
+.navbar .navbar-brand {
+    font-weight: 600;
+    font-size: 30px;
+    font-family: "Nunito", sans-serif;
+}
+.body-container {
+    margin-top: 7%;
+    margin-bottom: 3%;
+}
